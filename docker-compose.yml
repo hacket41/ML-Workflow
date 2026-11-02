@@ -1,0 +1,8 @@
+services:
+  ml-service:
+    build: .
+    image: ml-service:latest
+    container_name: ml-service
+    ports:
+      - "8000:8000"
+    restart: unless-stopped

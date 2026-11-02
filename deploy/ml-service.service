@@ -1,0 +1,20 @@
+# Install: sudo cp deploy/ml-service.service /etc/systemd/system/
+# Then:    sudo systemctl daemon-reload
+#          sudo systemctl enable --now ml-service
+# Edit WorkingDirectory to match where you cloned the project.
+
+[Unit]
+Description=ML Demo Service (Docker Compose)
+Requires=docker.service
+After=docker.service network-online.target
+
+[Service]
+Type=oneshot
+RemainAfterExit=yes
+WorkingDirectory=/opt/linux-ml-demo
+ExecStart=/usr/bin/docker compose up -d --build
+ExecStop=/usr/bin/docker compose down
+TimeoutStartSec=300
+
+[Install]
+WantedBy=multi-user.target
