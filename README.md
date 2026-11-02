@@ -1,4 +1,4 @@
-# Linux ML Demo Service
+# Linux ML Demo
 
 A small end-to-end example for an interview demonstration: a Python ML model served through FastAPI, packaged with Docker, tested and deployed through a CI/CD pipeline, and managed on Linux.
 
